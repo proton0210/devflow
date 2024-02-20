@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Applying Styles to complete App and Layout
+ */
 @import url("../styles/theme.css");
 
 body {
