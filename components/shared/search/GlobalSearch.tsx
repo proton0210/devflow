@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { Input } from '@/components/ui/input';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
-import { useRef, useState } from 'react';
+import { Input } from '@/components/ui/input'
+import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+import { useRef, useState } from 'react'
 
 const GlobalSearch = () => {
-  const searchParams = useSearchParams();
-  const searchContainerRef = useRef(null);
+  const searchParams = useSearchParams()
+  const searchContainerRef = useRef(null)
 
-  const query = searchParams.get('q');
+  const query = searchParams.get('q')
 
-  const [search, setSearch] = useState(query || '');
-  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState(query || '')
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div
@@ -33,16 +33,16 @@ const GlobalSearch = () => {
           placeholder="Search globally"
           value={search}
           onChange={(e) => {
-            setSearch(e.target.value);
+            setSearch(e.target.value)
 
-            if (!isOpen) setIsOpen(true);
-            if (e.target.value === '' && isOpen) setIsOpen(false);
+            if (!isOpen) setIsOpen(true)
+            if (e.target.value === '' && isOpen) setIsOpen(false)
           }}
           className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GlobalSearch;
+export default GlobalSearch
