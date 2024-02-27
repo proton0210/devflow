@@ -1,16 +1,16 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
-import { HomePageFilters } from "@/constants/filters";
-import Filter from "@/components/shared/Filter";
-import HomeFilters from "@/components/home/HomeFilters";
-import QuestionCard from "@/components/cards/QuestionCard";
-import NoResult from "@/components/shared/NoResult";
-import { getQuestions } from "@/lib/actions/question.actions";
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import LocalSearchbar from '@/components/shared/search/LocalSearchbar'
+import { HomePageFilters } from '@/constants/filters'
+import Filter from '@/components/shared/Filter'
+import HomeFilters from '@/components/home/HomeFilters'
+import QuestionCard from '@/components/cards/QuestionCard'
+import NoResult from '@/components/shared/NoResult'
+import { getQuestions } from '@/lib/actions/question.actions'
 // Dummy data objects
 
-export default async function Home() {
-  const result = await getQuestions({});
+export default async function Home () {
+  const result = await getQuestions({})
 
   return (
     <>
@@ -24,7 +24,7 @@ export default async function Home() {
         </Link>
       </div>
 
-      <div className="mt-11 flex flex-between gap-5 max-sm:flex-col sm:items-center">
+      <div className="flex-between mt-11 flex gap-5 max-sm:flex-col sm:items-center">
         <LocalSearchbar
           route="/"
           iconPosition="left"
@@ -43,8 +43,9 @@ export default async function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {result.questions.length > 0 ? (
-          result.questions.map((question) => (
+        {result.questions.length > 0
+          ? (
+              result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
@@ -56,16 +57,17 @@ export default async function Home() {
               answers={question.answers}
               createdAt={question.createdAt}
             />
-          ))
-        ) : (
+              ))
+            )
+          : (
           <NoResult
             title="There’s no question to show"
             description="Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡"
             link="/ask-question"
             linkTitle="Ask a Question"
           />
-        )}
+            )}
       </div>
     </>
-  );
+  )
 }

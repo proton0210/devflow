@@ -1,10 +1,10 @@
-import LeftSidebar from "@/components/shared/LeftSidebar";
-import RightSideBar from "@/components/shared/RightSideBar";
-import Navbar from "@/components/shared/navbar/Navbar";
-import React from "react";
+import LeftSidebar from '@/components/shared/LeftSidebar'
+import RightSideBar from '@/components/shared/RightSideBar'
+import Navbar from '@/components/shared/navbar/Navbar'
+import React from 'react'
 
-export default function RootLayout({
-  children,
+export default function RootLayout ({
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -20,5 +20,5 @@ export default function RootLayout({
       </div>
       Toaster
     </main>
-  );
+  )
 }

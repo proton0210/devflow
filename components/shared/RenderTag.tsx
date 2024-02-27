@@ -1,6 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import { Badge } from "@/components/ui/badge";
+import Link from 'next/link'
+import React from 'react'
+import { Badge } from '@/components/ui/badge'
 
 interface Props {
   _id: string;
@@ -20,7 +20,7 @@ const RenderTag = ({ _id, name, totalQuestions, showCount }: Props) => {
         <p className="small-medium text-dark500_light700">{totalQuestions}</p>
       )}
     </Link>
-  );
-};
+  )
+}
 
-export default RenderTag;
+export default RenderTag

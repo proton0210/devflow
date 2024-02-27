@@ -1,9 +1,9 @@
-import Link from "next/link";
-import React from "react";
-import RenderTag from "../shared/RenderTag";
-import Metric from "../shared/Metric";
-import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
-import { SignedIn } from "@clerk/nextjs";
+import Link from 'next/link'
+import React from 'react'
+import RenderTag from '../shared/RenderTag'
+import Metric from '../shared/Metric'
+import { formatAndDivideNumber, getTimestamp } from '@/lib/utils'
+import { SignedIn } from '@clerk/nextjs'
 // import EditDeleteAction from "../shared/EditDeleteAction";
 
 interface QuestionProps {
@@ -34,7 +34,7 @@ const QuestionCard = ({
   upvotes,
   views,
   answers,
-  createdAt,
+  createdAt
 }: QuestionProps) => {
   //   const showActionButtons =
   //     clerkId && clerkId === author._id ? true : false;
@@ -68,7 +68,7 @@ const QuestionCard = ({
 
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
         <Metric
-          imgUrl={author.picture || ""}
+          imgUrl={author.picture || ''}
           alt="user"
           value={author.name}
           title={` - asked ${getTimestamp(createdAt)}`}
@@ -100,7 +100,7 @@ const QuestionCard = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default QuestionCard;
+export default QuestionCard

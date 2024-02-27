@@ -1,16 +1,14 @@
-import Question from "@/components/forms/Question";
-import { getUserById } from "@/lib/actions/user.action";
-import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import React from "react";
+import Question from '@/components/forms/Question'
+import { getUserById } from '@/lib/actions/user.action'
+import { redirect } from 'next/navigation'
 
 const Page = async () => {
   // const { userId } = auth();
-  const userId = "123456";
+  const userId = '123456'
 
-  if (!userId) redirect("/sign-in");
+  if (!userId) redirect('/sign-in')
 
-  const mongoUser = await getUserById({ userId });
+  const mongoUser = await getUserById({ userId })
 
   return (
     <div>
@@ -20,7 +18,7 @@ const Page = async () => {
         <Question mongoUserId={JSON.stringify(mongoUser?._id)} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
