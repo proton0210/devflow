@@ -53,31 +53,10 @@ const Question = ({ type, mongoUserId, questionDetails }: Props) => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
-    console.log("submitinh");
     setIsSubmitting(true);
 
     try {
-      if (type === "Edit") {
-        // await editQuestion({
-        //   questionId: parsedQuestionDetails._id,
-        //   title: values.title,
-        //   content: values.explanation,
-        //   path: pathname,
-        // });
-
-        router.push(`/question/${parsedQuestionDetails._id}`);
-      } else {
-        console.log("Creating Question");
-        await createQuestion({
-          title: values.title,
-          content: values.explanation,
-          tags: values.tags,
-          author: JSON.parse(mongoUserId),
-          path: pathname,
-        });
-
-        router.push("/");
-      }
+      await createQuestion({});
     } catch (error) {
     } finally {
       setIsSubmitting(false);
