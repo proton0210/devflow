@@ -6,67 +6,12 @@ import Filter from "@/components/shared/Filter";
 import HomeFilters from "@/components/home/HomeFilters";
 import QuestionCard from "@/components/cards/QuestionCard";
 import NoResult from "@/components/shared/NoResult";
+import { getQuestions } from "@/lib/actions/question.actions";
 // Dummy data objects
-const dummyData1 = {
-  _id: "1",
-  title: "Dummy Question 1",
-  tags: [
-    { _id: "tag1", name: "Tag 1" },
-    { _id: "tag2", name: "Tag 2" },
-  ],
-  author: {
-    _id: "author1",
-    name: "Author 1",
-    // picture: "author1.jpg",
-  },
-  upvotes: ["user1", "user2"],
-  views: 20,
-  answers: [{}, {}, {}], // You can add specific objects here according to your object structure
-  createdAt: new Date("2024-02-23T00:00:00Z"),
-  clerkId: "clerk1",
-};
-
-const dummyData2 = {
-  _id: "2",
-  title: "Dummy Question 2",
-  tags: [
-    { _id: "tag3", name: "Tag 3" },
-    { _id: "tag4", name: "Tag 4" },
-  ],
-  author: {
-    _id: "author2",
-    name: "Author 2",
-    // picture: "author2.jpg",
-  },
-  upvotes: ["user3"],
-  views: 15,
-  answers: [{}, {}], // You can add specific objects here according to your object structure
-  createdAt: new Date("2024-02-22T00:00:00Z"),
-};
-
-const dummyData3 = {
-  _id: "3",
-  title: "Dummy Question 3",
-  tags: [
-    { _id: "tag5", name: "Tag 5" },
-    { _id: "tag6", name: "Tag 6" },
-  ],
-  author: {
-    _id: "author3",
-    name: "Author 3",
-    // picture: "author3.jpg",
-  },
-  upvotes: ["user4", "user5", "user6"],
-  views: 25,
-  answers: [{}, {}, {}, {}], // You can add specific objects here according to your object structure
-  createdAt: new Date("2024-02-21T00:00:00Z"),
-};
-
-// Array to hold dummy data objects
-const questions = [dummyData1, dummyData2, dummyData3];
 
 export default async function Home() {
-  // const result = await getQuestions({});
+  const result = await getQuestions({});
+  console.log(result);
 
   return (
     <>
@@ -99,8 +44,8 @@ export default async function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
