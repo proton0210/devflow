@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import React from 'react'
 import { ClerkProvider } from '@clerk/nextjs'
+import { Inter, Space_Grotesk } from 'next/font/google'
+import type { Metadata } from 'next'
+
 import './globals.css'
 import '../styles/prism.css'
-
-import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
 import { ThemeProvider } from '@/context/ThemeProvider'
 
 const inter = Inter({
@@ -29,7 +29,11 @@ export const metadata: Metadata = {
   }
 }
 
-export default function AppLayout ({ children }: { children: React.ReactNode }) {
+export default function RootLayout ({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
